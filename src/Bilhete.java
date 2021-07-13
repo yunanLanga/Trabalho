@@ -4,6 +4,7 @@ public abstract class Bilhete {
     protected short codigo;
     protected float valor;
 
+
     public Bilhete(String nomeCliente, String bi_Cliente, String data_partida, String data_chegada, String formaPagamento, short codigo, float valor) {
         this.nomeCliente = nomeCliente;
         this.bi_Cliente = bi_Cliente;
