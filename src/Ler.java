@@ -4,28 +4,31 @@ import java.util.Vector;
 
 public class Ler {
 
+    //TODO: Escrever os dados no ficheiro de Objectos;
+    //TODO: Ler os dados do ficheiro de Objectos;
+
     private Vector v;
 
     public Ler(){ v = new Vector();}
 
     public void LerFicheiro(){
 
-        String nome,dataPartida,dataChegada,pagamento,companhia,matricula,tipo,line,criterio,criterio2;
+        String nome,dataPartida,dataChegada,pagamento,companhia,matricula,tipo,line,criterio,criterio2,bi;
         StringTokenizer key;
         byte combustivel;
         short codigo,milhas;
         float valor,valorPortagem;
-        int bi,kilometros;
+        int kilometros;
 
         try{
-            BufferedReader br = new BufferedReader(new FileReader("/home/mingos/Documents/ClassMaterials/PO2/PO1/Programas/TrP1/src/data.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("/home/mingos/Documents/ClassMaterials/PO2/PO1/Programas/TrP1/src/Dados/bilhetes.txt"));
             line = br.readLine();
 
             while (line!=null){
                 key = new StringTokenizer(line,";");
                 codigo = Short.parseShort(key.nextToken());
                 nome = key.nextToken();
-                bi = Integer.parseInt(key.nextToken());
+                bi = key.nextToken();
                 dataPartida = key.nextToken();
                 dataChegada = key.nextToken();
                 valor = Float.parseFloat(key.nextToken());
@@ -68,11 +71,10 @@ public class Ler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
+        System.out.println("Ficheiro lido com sucesso!");
     }
 
-    private void criarBilheteMar(short codigo, String nome, int bi, String dataPartida, String dataChegada, float valor, String pagamento, String tipo) {
+    private void criarBilheteMar(short codigo, String nome, String bi, String dataPartida, String dataChegada, float valor, String pagamento, String tipo) {
         Mar mar = new Mar();
         mar.setCodigo(codigo);
         mar.setNomeCliente(nome);
@@ -87,7 +89,7 @@ public class Ler {
         v.trimToSize();
     }
 
-    private void criarBilheteAereo(short codigo, String nome, int bi, String dataPartida, String dataChegada, float valor, String pagamento, short milhas, String companhia) {
+    private void criarBilheteAereo(short codigo, String nome, String bi, String dataPartida, String dataChegada, float valor, String pagamento, short milhas, String companhia) {
         Aereo aereo = new Aereo();
         aereo.setCodigo(codigo);
         aereo.setNomeCliente(nome);
@@ -103,7 +105,7 @@ public class Ler {
         v.trimToSize();
     }
 
-    private void criarBilheteCarro(short codigo, String nome, int bi, String dataPartida, String dataChegada, float valor, String pagamento, int kilometros, String matricula, byte combustivel, float valorPortagem) {
+    private void criarBilheteCarro(short codigo, String nome, String bi, String dataPartida, String dataChegada, float valor, String pagamento, int kilometros, String matricula, byte combustivel, float valorPortagem) {
         Carro carro = new Carro();
         carro.setCodigo(codigo);
         carro.setNomeCliente(nome);
@@ -121,7 +123,7 @@ public class Ler {
         v.trimToSize();
     }
 
-    private void criarBilheteComboio(short codigo, String nome, int bi, String dataPartida, String dataChegada, float valor, String pagamento, int kilometros, String tipo) {
+    private void criarBilheteComboio(short codigo, String nome, String bi, String dataPartida, String dataChegada, float valor, String pagamento, int kilometros, String tipo) {
         Comboio comboio = new Comboio();
         comboio.setCodigo(codigo);
         comboio.setNomeCliente(nome);
@@ -140,15 +142,71 @@ public class Ler {
     public void adaptadorPesquisa() throws IOException {
         Pesquisar p = new Pesquisar();
         Validar valid = new Validar();
-        short cod = valid.validarShort("Introduza o código do bilhete","Código inválido!");
-        p.pesqBilhete(v,cod);
+        short cod = valid.validarShort((short)9999,(short) 32767,"Introduza o código do bilhete","Código inválido!");
+
+        Bilhete b = p.pesqBilhete(v,cod);
+
+        if(b!=null){
+            System.out.println("Resultado:");
+            System.out.println(b);
+        }
+        else{
+            System.out.println("Sem resultados.");
+
+        }
     }
 
 
     public void adaptadorRemover() throws IOException {
         Remover r = new Remover();
         Validar valid = new Validar();
-        short cod = valid.validarShort("Introduza o código do bilhete","Código inválido!");
+        short cod = valid.validarShort((short)9999,(short) 32767,"Introduza o código do bilhete","Código inválido!");
         r.remover(v,cod);
+    }
+
+    //Alterar a quantidade de milhas de um bilhete aéreo recebendo o código do bilhete;
+    public void adaptadorQuantMilhas() throws IOException {
+        Pesquisar p = new Pesquisar();
+        Validar valid = new Validar();
+        short cod = valid.validarShort((short)9999,(short) 32767,"Introduza o código do bilhete","Código inválido!");
+        Aereo a = (Aereo) p.pesqBilhete(v,cod);
+        if(a==null){
+            System.out.println("Bilhete não existe");
+        }
+        else{
+            short milhas = valid.validarShort((short) 1,(short) 30000,"Introduza a quantidade de milhas","Quantidade inválida!");
+            a.setMilhas(milhas);
+            System.out.println("Alterou quantidade de milhas para:"+a.getMilhas());
+        }
+    }
+
+    public void adaptadorVisualizarTodos() {
+        Visualizar visualizar = new Visualizar();
+        visualizar.todosDados(v);
+    }
+
+    public void adaptadorVisualizarCarro() {
+        Visualizar visualizar = new Visualizar();
+        visualizar.todosBilhetesCarro(v);
+    }
+
+    public void adaptadorVisualizarComboio() {
+        Visualizar visualizar = new Visualizar();
+        visualizar.todosBilhetesComboio(v);
+    }
+
+    public void adaptadorVisualizarAereo() {
+        Visualizar visualizar = new Visualizar();
+        visualizar.todosBilhetesAereo(v);
+    }
+
+    public void adaptadorVisualizarMar() {
+        Visualizar visualizar = new Visualizar();
+        visualizar.todosBilhetesMar(v);
+    }
+
+    public void adaptadorVooLongo() {
+        Calculos calculos = new Calculos();
+        calculos.vooMaisLongo(v);
     }
 }

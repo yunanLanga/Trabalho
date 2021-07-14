@@ -2,23 +2,22 @@ import java.util.Vector;
 
 public class Pesquisar {
 
-    public void pesqBilhete(Vector v, short cod) {
-        Bilhete b;
+    public Bilhete pesqBilhete(Vector v, short cod) {
+        Bilhete b = null;
+
         Boolean found = false;
 
         for(byte i = 0; i < v.size() && found==false; i++){
             b = (Bilhete) v.elementAt(i);
-            System.out.println(b.getCodigo());
             if(cod == b.getCodigo()){
                 found = true;
-                System.out.println("Resultado:");
-                System.out.println("-------------------------");
-                System.out.println(b);
-                System.out.println("-------------------------");
+                System.out.println("----------------------------------------------");
             }
         }
-        if(found==false){
-            System.out.println("Sem resultados.");
+        if(found != false){
+            return b;
+        }else {
+            return null;
         }
     }
 }

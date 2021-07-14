@@ -20,6 +20,14 @@ public class Menu {
                     l.LerFicheiro();
                     break;
 
+                case 2:
+                    //
+                    break;
+
+                case 3:
+                    //
+                    break;
+
                 case 4:
                     l.adaptadorPesquisa();
                     break;
@@ -28,15 +36,45 @@ public class Menu {
                     l.adaptadorRemover();
                     break;
 
+                case 6:
+                    l.adaptadorQuantMilhas();
+                    break;
+
+                case 7:
+                    //Introduzir novos dados do teclado e escrever no ficheiro de texto
+                    break;
+
                 case 8:
-                    menuVisualizar();
-                    op2 = v.validarByte((byte) 1,(byte) 4,"Escolha uma opção.","Opção Inválida!");
+                    do {
+                        menuVisualizar();
+                        op2 = v.validarByte((byte) 1, (byte) 7, "Escolha uma opção.", "Opção Inválida!");
 
-                    switch (op2){
-                        case 1:
+                        switch (op2) {
+                            case 1:
+                                l.adaptadorVisualizarTodos();
+                                break;
 
-                            break;
-                    }
+                            case 2:
+                                l.adaptadorVisualizarCarro();
+                                break;
+
+                            case 3:
+                                l.adaptadorVisualizarComboio();
+                                break;
+
+                            case 4:
+                                l.adaptadorVisualizarMar();
+                                break;
+
+                            case 5:
+                                l.adaptadorVisualizarAereo();
+                                break;
+
+                            case 6:
+                                l.adaptadorVooLongo();
+                                break;
+                        }
+                    }while (op2!=7);
                     break;
             }
 
@@ -67,9 +105,13 @@ public class Menu {
         System.out.println("                  VISUALIZAR                ");
         System.out.println("----------------------------------------------");
         System.out.println("1.Visualizar uma tabela contendo todos os dados");
-        System.out.println("2.Visualizar separadamente por cada tipo de bilhete");
-        System.out.println("3.Visualizar o voo mais longo de todos.");
-        System.out.println("4.Voltar");
+        System.out.println("2.Visualizar Bilhete - Carro");
+        System.out.println("3.Visualizar Bilhete - Comboio");
+        System.out.println("4.Visualizar Bilhete - Mar");
+        System.out.println("5.Visualizar Bilhete - Aereo");
+        System.out.println("6.Visualizar o voo mais longo de todos.");
+        System.out.println("7.Voltar");
+        System.out.println("----------------------------------------------");
     }
 
 }

@@ -1,4 +1,4 @@
-public interface Calculo {
+public interface Iva {
     /*
     Implemente a interface Calculo contendo a taxa de IVA 17%, que será aplicado ao preço. O cálculo do
     valor do IVA e do valor Final que só é aplicado aos bilhetes Terrestres. Sabe-se que o cálculo do IVA é
