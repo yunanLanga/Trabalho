@@ -5,6 +5,5 @@ public interface Calculo {
     igual para todos terrestres, mas o valor final é diferente. Aos Carros acrescenta-se o valor da portagem,
     e os comboios tem um desconto de 5%. Faça o uso da classe Abstracta para a classe Terrestre.
     */
-
     public static float IVA = 17/100;
 }

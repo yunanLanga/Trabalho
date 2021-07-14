@@ -1,11 +1,12 @@
 public abstract class Bilhete {
 
-    protected String nomeCliente,bi_Cliente,data_partida,data_chegada,formaPagamento;
+    protected String nomeCliente,data_partida,data_chegada,formaPagamento;
     protected short codigo;
     protected float valor;
+    protected int bi_Cliente;
 
 
-    public Bilhete(String nomeCliente, String bi_Cliente, String data_partida, String data_chegada, String formaPagamento, short codigo, float valor) {
+    public Bilhete(String nomeCliente, int bi_Cliente, String data_partida, String data_chegada, String formaPagamento, short codigo, float valor) {
         this.nomeCliente = nomeCliente;
         this.bi_Cliente = bi_Cliente;
         this.data_partida = data_partida;
@@ -16,14 +17,14 @@ public abstract class Bilhete {
     }
 
     public Bilhete() {
-        this("","","","","",(short) 0,(float) 0);
+        this("",0,"","","",(short) 0,(float) 0);
     }
 
     public void setNomeCliente(String nomeCliente) {
         this.nomeCliente = nomeCliente;
     }
 
-    public void setBi_Cliente(String bi_Cliente) {
+    public void setBi_Cliente(int bi_Cliente) {
         this.bi_Cliente = bi_Cliente;
     }
 
