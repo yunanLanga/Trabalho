@@ -21,8 +21,7 @@ public abstract class Terrestre extends Bilhete  {
     @Override
     public String toString() {
         return  super.toString() +
-                "Terrestre{" +
-                "nr_kilometros=" + nr_kilometros +
-                '}';
+                "\nTransporte - Terrestre:" +
+                "\nNúmero de kilómetros=" + nr_kilometros;
     }
 }

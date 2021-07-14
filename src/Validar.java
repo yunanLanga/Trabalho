@@ -21,16 +21,16 @@ public class Validar {
         return v;
     }
 
-    public short validarShort(String msg,String msgE, byte size) throws IOException{
-        byte cod;
+    public short validarShort(String msg,String msgE) throws IOException{
+        short cod;
 
         do{
             System.out.println(msg);
-            cod = Byte.parseByte(x.readLine());
-            if(cod < size || cod > size){
+            cod = Short.parseShort(x.readLine());
+            if(cod < 9999 || cod > 32767){ //Todos codigos tem 5 alg...
                 System.out.println(msgE);
             }
-        }while (cod < size || cod > size);
+        }while (cod < 9999 || cod > 32767);
         return cod;
     }
 }

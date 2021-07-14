@@ -21,8 +21,7 @@ public final class Mar extends  Bilhete{
     @Override
     public String toString() {
         return  super.toString()+
-                "Mar{" +
-                "tipo='" + tipo + '\'' +
-                '}';
+                "\nTransporte - Náutico{" +
+                "\nTipo= " + tipo;
     }
 }

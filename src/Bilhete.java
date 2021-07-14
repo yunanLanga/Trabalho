@@ -48,16 +48,18 @@ public abstract class Bilhete {
         this.valor = valor;
     }
 
+    public short getCodigo() {
+        return codigo;
+    }
+
     @Override
     public String toString() {
-        return "Bilhete{" +
-                "nomeCliente='" + nomeCliente + '\'' +
-                ", bi_Cliente='" + bi_Cliente + '\'' +
-                ", data_partida='" + data_partida + '\'' +
-                ", data_chegada='" + data_chegada + '\'' +
-                ", formaPagamento='" + formaPagamento + '\'' +
-                ", codigo=" + codigo +
-                ", valor=" + valor +
-                '}';
+        return  "Código Bilhete="+codigo+ "\n"+
+                "Cliente "+ nomeCliente + '\n' +
+                "BI Cliente = " + bi_Cliente + '\n' +
+                "Data partida= " + data_partida + '\n' +
+                "Data chegada= " + data_chegada + '\n' +
+                "Forma de Pagamento= " + formaPagamento + '\n' +
+                "Valor= " + valor;
     }
 }

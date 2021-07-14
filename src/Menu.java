@@ -17,11 +17,15 @@ public class Menu {
 
             switch (op){
                 case 1:
-                        l.LerFicheiro();
+                    l.LerFicheiro();
                     break;
 
                 case 4:
                     l.adaptadorPesquisa();
+                    break;
+
+                case 5:
+                    l.adaptadorRemover();
                     break;
 
                 case 8:

@@ -26,9 +26,8 @@ public final class Aereo extends Bilhete{
     @Override
     public String toString() {
         return super.toString()+
-                "Aereo{" +
-                "milhas=" + milhas +
-                ", companhia='" + companhia + '\'' +
-                '}';
+                "\nTransporte - Aéreo{" +
+                "\nMilhas= " + milhas +
+                " Companhia= " + companhia;
     }
 }

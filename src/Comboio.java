@@ -18,8 +18,7 @@ public final class Comboio extends Terrestre{
     @Override
     public String toString() {
         return super.toString()+
-                "Comboio{" +
-                "tipo='" + tipo + '\'' +
-                '}';
+                "\nTransporte - Ferroviario{" +
+                "\nTipo= " + tipo;
     }
 }

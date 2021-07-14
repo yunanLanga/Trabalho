@@ -140,12 +140,15 @@ public class Ler {
     public void adaptadorPesquisa() throws IOException {
         Pesquisar p = new Pesquisar();
         Validar valid = new Validar();
-        short cod = valid.validarShort("Introduza o código do bilhete","Código inválido!",(byte)v.size());
+        short cod = valid.validarShort("Introduza o código do bilhete","Código inválido!");
         p.pesqBilhete(v,cod);
     }
 
 
-
-
-
+    public void adaptadorRemover() throws IOException {
+        Remover r = new Remover();
+        Validar valid = new Validar();
+        short cod = valid.validarShort("Introduza o código do bilhete","Código inválido!");
+        r.remover(v,cod);
+    }
 }

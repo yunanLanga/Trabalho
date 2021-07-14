@@ -31,10 +31,9 @@ public final class Carro extends Terrestre {
     @Override
     public String toString() {
         return  super.toString() +
-                "Carro{" +
-                "matricula='" + matricula + '\'' +
-                ", quant_combustivel=" + quant_combustivel +
-                ", valorPortagem=" + valorPortagem +
-                '}';
+                "\nTipo - Carro" +
+                "\nMatricula= " + matricula +
+                "\nQuantidade combustivel=" + quant_combustivel +
+                "\nValor da Portagem=" + valorPortagem;
     }
 }
