@@ -21,4 +21,16 @@ public class Validar {
         return v;
     }
 
+    public short validarShort(String msg,String msgE, byte size) throws IOException{
+        byte cod;
+
+        do{
+            System.out.println(msg);
+            cod = Byte.parseByte(x.readLine());
+            if(cod < size || cod > size){
+                System.out.println(msgE);
+            }
+        }while (cod < size || cod > size);
+        return cod;
+    }
 }

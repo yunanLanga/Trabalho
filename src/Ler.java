@@ -137,6 +137,15 @@ public class Ler {
         v.trimToSize();
     }
 
+    public void adaptadorPesquisa() throws IOException {
+        Pesquisar p = new Pesquisar();
+        Validar valid = new Validar();
+        short cod = valid.validarShort("Introduza o código do bilhete","Código inválido!",(byte)v.size());
+        p.pesqBilhete(v,cod);
+    }
+
+
+
 
 
 }

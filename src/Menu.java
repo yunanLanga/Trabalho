@@ -2,7 +2,9 @@ import java.io.IOException;
 
 public class Menu {
 
-    public Menu(){Ler l = new Ler();}
+    Ler l;
+
+    public Menu(){l = new Ler();}
 
     public void execMenu() throws IOException {
 
@@ -15,14 +17,18 @@ public class Menu {
 
             switch (op){
                 case 1:
+                        l.LerFicheiro();
+                    break;
 
+                case 4:
+                    l.adaptadorPesquisa();
                     break;
 
                 case 8:
                     menuVisualizar();
                     op2 = v.validarByte((byte) 1,(byte) 4,"Escolha uma opção.","Opção Inválida!");
 
-                    switch (op){
+                    switch (op2){
                         case 1:
 
                             break;
@@ -30,15 +36,14 @@ public class Menu {
                     break;
             }
 
-        }while (op!=7);
+        }while (op!=9);
 
     }
 
 
 
     public void menuPrincipal(){
-        System.out.println("");
-        System.out.println("----------------------------------------------");
+        System.out.println("\n----------------------------------------------");
         System.out.println("                      MENU                   ");
         System.out.println("----------------------------------------------");
         System.out.println("1.ler dados do ficheiro de texto");
